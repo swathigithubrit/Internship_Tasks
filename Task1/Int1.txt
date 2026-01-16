@@ -1,0 +1,65 @@
+
+1. How does Python execution start?
+
+Python execution starts when the Python interpreter reads the source code file line by line from the top.
+The interpreter first checks the syntax, then converts the code into bytecode, and finally executes it using the Python Virtual Machine (PVM).
+Execution begins from the first line of the program, unless functions or classes are defined, which run only when they are called.
+
+---
+
+2. Difference between compiled and interpreted languages
+
+| Compiled Language                                   | Interpreted Language                               |
+| --------------------------------------------------- | -------------------------------------------------- |
+| Entire code is translated into machine code at once | Code is executed line by line                      |
+| Requires a compiler (e.g., C, C++)                  | Requires an interpreter (e.g., Python, JavaScript) |
+| Faster execution after compilation                  | Slower execution compared to compiled              |
+| Errors shown after compilation                      | Errors shown during execution                      |
+| Platform-dependent binaries                         | Platform-independent                               |
+
+Python is an interpreted language.
+
+---
+
+3. What is the role of an IDE?
+
+An IDE (Integrated Development Environment) helps developers write, run, debug, and manage code efficiently.
+It provides features like:
+
+* Code editor
+* Syntax highlighting
+* Auto-completion
+* Error detection
+* Debugging tools
+* Integrated terminal
+
+Examples: VS Code, PyCharm, Eclipse
+
+---
+
+4. How do comments help in real projects?
+
+Comments help in:
+
+* Explaining the purpose of code
+* Making code easy to understand
+* Helping other developers read and maintain code
+* Debugging and future modifications
+* Improving teamwork and documentation
+
+Comments are ignored by the Python interpreter during execution.
+
+---
+
+5. How do you take user input in Python?
+
+User input in Python is taken using the `input()` function.
+
+Example:
+
+```python
+name = input("Enter your name: ")
+print("Hello", name)
+```
+
+The `input()` function always returns string data, so type conversion is required when working with numbers.

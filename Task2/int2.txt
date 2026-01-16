@@ -1,0 +1,74 @@
+1. What is dynamic typing?
+
+Dynamic typing means that Python does not require us to declare the data type of a variable explicitly.
+The data type is decided at runtime based on the value assigned to the variable, and the same variable can change its type during execution.
+
+Example:
+
+```python
+x = 10      # x is int
+x = "Hi"    # x is now string
+```
+
+---
+
+2. Difference between int and float
+
+| int                   | float                      |
+| --------------------- | -------------------------- |
+| Stores whole numbers  | Stores decimal numbers     |
+| Examples: 5, 100, -20 | Examples: 3.14, 2.5, -0.99 |
+| Uses less memory      | Uses more memory           |
+| Faster operations     | Slightly slower than int   |
+
+Example:
+
+```python
+a = 10      # int
+b = 10.5    # float
+```
+
+---
+
+3. Why is type conversion required?
+
+Type conversion is required when data needs to be converted from one type to another so that operations can be performed correctly.
+For example, user input is always read as a string, but arithmetic operations require numeric types like int or float.
+
+Example:
+
+```python
+age = int(input("Enter age: "))
+```
+
+---
+
+4. What happens if conversion fails?
+
+If type conversion fails, Python raises a runtime error such as `ValueError`.
+This usually happens when invalid data is converted, like converting a string that does not contain a number into an integer.
+
+Example:
+
+```python
+int("abc")  # ValueError
+```
+
+To avoid crashes, exception handling (try-except) is used.
+
+---
+
+5. How does Python store variables in memory?
+
+In Python, variables do not store values directly.
+Instead, they store references (memory addresses) to objects stored in memory.
+Multiple variables can point to the same object, and Python automatically manages memory using garbage collection.
+
+Example:
+
+```python
+a = 10
+b = a
+```
+
+Here, both `a` and `b` refer to the same memory object.
