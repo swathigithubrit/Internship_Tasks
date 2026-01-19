@@ -1,0 +1,116 @@
+
+1️⃣ Difference between `if` and `elif`:
+
+* `if` is used to check a condition for the first time.
+* `elif` (short for “else if”) is used to check another condition only if the previous `if` or `elif` was False.
+* Only one block of `if-elif-else` executes; once a condition is True, Python skips the rest.
+
+Example:
+
+```python
+marks = 85
+
+if marks >= 90:
+    print("A+ Grade")
+elif marks >= 80:
+    print("A Grade")  # This will execute
+else:
+    print("B Grade")
+```
+
+
+
+2️⃣ What are logical operators?
+
+* Logical operators allow combining multiple conditions.
+* Python has three main logical operators:
+
+  1. `and` → True if both conditions are True
+  2. `or` → True if any one condition is True
+  3. `not` → Inverts the result
+
+Example:
+
+```python
+marks = 75
+attendance = 90
+
+# Student passes if marks >= 50 AND attendance >= 75
+if marks >= 50 and attendance >= 75:
+    print("Pass")
+```
+
+---
+
+3️⃣ How does Python evaluate conditions?
+
+* Python evaluates conditions from left to right in `if` statements.
+* It checks Boolean value (`True` or `False`) of each expression.
+* Once a condition is True, Python executes its block and skips the rest.
+
+Example:
+
+```python
+marks = 65
+
+if marks > 80:
+    print("A Grade")
+elif marks > 60:
+    print("C Grade")  # Python executes this block
+else:
+    print("Fail")
+```
+
+---
+
+4️⃣ What is nesting?
+
+* Nesting means putting one `if` or `else` block **inside another.
+* Useful for complex business rules.
+* Example: special rules within a grade.
+
+Example:
+
+```python
+marks = 55
+
+if marks >= 50:
+    if marks == 55:
+        print("C+ Grade (Just Passed)")  # Nested condition
+    else:
+        print("C Grade")
+else:
+    print("Fail")
+```
+
+---
+
+5️⃣ How to avoid deep nesting?
+
+* Too many nested `if` statements make code hard to read.
+* Use these strategies:
+
+  1. Return early in functions
+  2. Use logical operators (`and`, `or`) to combine conditions
+  3. Refactor code into functions
+
+Example (avoid deep nesting):
+
+```python
+def grade(marks):
+    if marks < 0 or marks > 100:
+        return "Invalid marks"
+    if marks >= 90:
+        return "A+ Grade"
+    if marks >= 80:
+        return "A Grade"
+    if marks >= 70:
+        return "B Grade"
+    if marks >= 60:
+        return "C Grade"
+    return "Fail"
+
+print(grade(85))
+```
+
+✅ Notice: No deep nesting, and the logic is clear and readable.
