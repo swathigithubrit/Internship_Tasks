@@ -1,0 +1,204 @@
+1️⃣ List vs Tuple
+
+Both list and tuple are ordered collections in Python, but the key difference is mutability.
+
+Key Differences Table:
+
+| Feature     | List                     | Tuple                         |
+| ----------- | ------------------------ | ----------------------------- |
+| Mutability  | Mutable (can be changed) | Immutable (cannot be changed) |
+| Syntax      | `[ ]`                    | `( )`                         |
+| Performance | Slower                   | Faster                        |
+| Memory      | More                     | Less                          |
+| Use case    | Dynamic data             | Fixed data                    |
+
+
+Example:
+
+# List example
+numbers = [1, 2, 3]
+numbers.append(4)   # Allowed
+print(numbers)
+
+# Tuple example
+coords = (10, 20)
+# coords[0] = 15    # ❌ Error
+print(coords)
+
+
+One-Liner:- 
+
+Use lists when data changes, tuples when data should remain constant.
+
+
+
+2️⃣ Why are sets unordered?
+
+Sets are unordered because they are implemented using hashing, not indexing. The position of elements depends on their hash values, not insertion order.
+
+Why Python designed it this way:
+
+Faster search operations (O(1) average)
+
+Efficient duplicate removal
+
+Optimized memory usage
+
+Example:- 
+
+names = {"Swathi", "Anil", "Ravi", "Priya"}
+print(names)
+
+
+Output order may change every time:
+
+{'Ravi', 'Swathi', 'Priya', 'Anil'}
+
+
+Important point:- 
+
+Sets do not support indexing
+
+# names[0] ❌ TypeError
+
+
+One-liner:
+
+Sets prioritize performance over order.
+
+
+
+3️⃣ When should we use a tuple?
+
+Tuples should be used when data should not change throughout program execution and when performance matters.
+
+Common real-world use cases:
+
+Database records
+
+Coordinates (x, y)
+
+Configuration values
+
+Function return values
+
+Example:- 
+
+# Tuple for fixed data
+db_config = ("localhost", 3306, "admin")
+
+print(db_config[0])  # Safe to read
+
+
+Why tuple is preferred here:
+
+Prevents accidental modification
+
+Faster iteration
+
+Thread-safe
+
+one-liner:
+
+Tuples protect data integrity.
+
+
+
+4️⃣ How to remove duplicates?
+
+The most efficient way to remove duplicates in Python is by converting a list to a set, because sets store only unique elements.
+
+Example:
+
+numbers = [1, 2, 3, 2, 4, 1, 5]
+
+unique_numbers = list(set(numbers))
+print(unique_numbers)
+
+
+Output:- 
+[1, 2, 3, 4, 5]
+
+
+Preserving order (important follow-up):
+
+unique_numbers = list(dict.fromkeys(numbers))
+print(unique_numbers)
+
+
+one-liner:
+
+Use sets for uniqueness, dictionaries for ordered uniqueness.
+
+
+5️⃣ Time Complexity Basics
+
+Time complexity describes how the execution time of an algorithm grows with input size.
+
+Why it matters:
+
+Helps choose efficient algorithms
+
+Improves scalability
+
+Reduces performance bottlenecks
+
+
+Common Time Complexities:- 
+
+| Complexity | Name        | Example           |
+| ---------- | ----------- | ----------------- |
+| O(1)       | Constant    | `x = arr[0]`      |
+| O(n)       | Linear      | Loop through list |
+| O(n²)      | Quadratic   | Nested loops      |
+| O(log n)   | Logarithmic | Binary search     |
+
+
+Examples:
+O(1) – Constant Time
+
+Code:- 
+def get_first(arr):
+    return arr[0]
+
+
+O(n) – Linear Time
+def print_all(arr):
+    for item in arr:
+        print(item)
+
+
+O(n²) – Quadratic Time
+
+def print_pairs(arr):
+    for i in arr:
+        for j in arr:
+            print(i, j)
+
+
+
+Why set lookup is faster than list lookup?
+
+Answer:
+
+Set lookup is O(1) average due to hashing, while list lookup is O(n).
+
+
+Final Summary:- 
+
+List vs Tuple → Mutability & performance
+
+Sets unordered → Hashing-based storage
+
+Tuple usage → Fixed, safe, fast data
+
+Remove duplicates → set() or dict.fromkeys()
+
+Time complexity → Measures scalability
+
+
+
+
+
+
+
