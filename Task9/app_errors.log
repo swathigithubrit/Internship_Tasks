@@ -1,0 +1,5 @@
+2026-01-29 13:10:53,637 - ERROR - Division by zero attempted.
+2026-01-29 13:10:53,639 - ERROR - Invalid data type used for division.
+2026-01-29 13:10:53,639 - ERROR - File not found: missing_file.txt
+2026-01-29 13:10:53,639 - ERROR - Invalid age input: Age cannot be negative.
+2026-01-29 13:10:53,639 - ERROR - Index out of range error occurred.

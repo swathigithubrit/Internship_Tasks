@@ -1,0 +1,223 @@
+1️⃣ Why exception handling?
+
+Exception handling is used to handle runtime errors gracefully so that the program does not crash unexpectedly and can continue execution or fail safely.
+
+Why it is important:
+
+Prevents program crashes
+
+Improves user experience
+
+Helps in debugging
+
+Makes code production-ready
+
+Example:
+
+# Without exception handling
+x = int("abc")  # ValueError → program crashes
+
+
+# With exception handling
+try:
+    x = int("abc")
+except ValueError:
+    print("Invalid input! Please enter a number.")
+
+
+Real-world example:
+In a banking app, if a user enters invalid input, the system should show an error message instead of crashing.
+
+
+2️⃣ try vs except
+try
+
+Contains code that may cause an error
+
+Python attempts to execute this block
+
+except
+
+Handles the error if it occurs
+
+Prevents program termination
+
+Example:
+
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+
+Key point:- 
+
+try = risky code
+except = error handling logic
+
+
+
+3️⃣ What is logging?
+
+Logging is the process of recording events, messages, and errors during program execution for monitoring and debugging purposes.
+
+Why logging is used:
+
+Tracks application behavior
+
+Helps debug issues in production
+
+Stores messages permanently (files)
+
+Example:
+
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info("Application started")
+logging.error("Something went wrong")
+
+
+
+4️⃣ finally block usage
+
+Interview answer:
+The finally block is used to execute cleanup code, regardless of whether an exception occurs or not.
+
+Common uses:
+
+Closing files
+
+Releasing database connections
+
+Cleaning resources
+
+Example:
+
+try:
+    file = open("data.txt", "r")
+    print(file.read())
+except FileNotFoundError:
+    print("File not found")
+finally:
+    print("Execution completed")
+
+finally always executes
+
+
+
+5️⃣ Custom exceptions
+
+Interview answer:
+Custom exceptions allow developers to define application-specific error conditions using classes.
+
+Why use custom exceptions:
+
+Clear error meaning
+
+Better debugging
+
+Domain-specific validation
+
+Example:
+
+class InvalidAgeError(Exception):
+    pass
+
+def check_age(age):
+    if age < 18:
+        raise InvalidAgeError("Age must be 18 or above")
+
+try:
+    check_age(16)
+except InvalidAgeError as e:
+    print(e)
+
+
+6️⃣ Difference between print() and logging
+
+| Feature        | print()           | logging                |
+| -------------- | ----------------- | ---------------------- |
+| Purpose        | Simple output     | Debugging & monitoring |
+| Levels         | ❌ No              | ✅ Yes                  |
+| File support   | ❌ No              | ✅ Yes                  |
+| Production use | ❌ Not recommended | ✅ Preferred            |
+| Timestamp      | ❌ No              | ✅ Yes                  |
+
+
+
+Example:
+
+print("User logged in")
+logging.info("User logged in")
+
+
+
+7️⃣ Why logging is preferred in production?
+
+Interview answer:
+Logging is preferred in production because it provides persistent, structured, and level-based information without exposing internal details to users.
+
+Reasons:
+
+Logs are saved to files
+
+Supports log levels
+
+Helps post-incident analysis
+
+Can be disabled/enabled easily
+
+Real-world example:
+Production servers use logs to diagnose issues without stopping the application.
+
+
+8️⃣ Log levels (DEBUG, INFO, ERROR)
+Common log levels:
+
+DEBUG → Detailed developer info
+
+INFO → Normal application flow
+
+WARNING → Potential issue
+
+ERROR → Runtime errors
+
+CRITICAL → System failure
+
+Example:
+logging.debug("Debugging value x=10")
+logging.info("User logged in")
+logging.error("Database connection failed")
+
+Interview tip:
+
+Use DEBUG in development, INFO/WARNING in production, ERROR for failures
+
+
+
+9️⃣ When to raise custom exceptions?
+
+Interview answer:
+Custom exceptions should be raised when business rules or application-specific constraints are violated.
+
+When to use:
+
+Invalid user input
+
+Security violations
+
+Business logic failures
+
+Domain rules (banking, healthcare, finance)
+
+Example:
+def withdraw(balance, amount):
+    if amount > balance:
+        raise Exception("Insufficient balance")
+
+🔚 Summary (1–2 lines)
+
+Exception handling prevents crashes and ensures safe execution.
+Logging is essential for debugging and monitoring production systems.
+Custom exceptions help enforce business rules cleanly and clearly.
