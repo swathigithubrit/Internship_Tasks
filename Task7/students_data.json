@@ -1,0 +1,20 @@
+{
+    "101": {
+        "name": "Swathi",
+        "branch": "CSE",
+        "year": 4,
+        "cgpa": 8.7
+    },
+    "102": {
+        "name": "Anil",
+        "branch": "ECE",
+        "year": 3,
+        "cgpa": 8.5
+    },
+    "104": {
+        "name": "Ravi",
+        "branch": "MECH",
+        "year": 1,
+        "cgpa": 7.8
+    }
+}
