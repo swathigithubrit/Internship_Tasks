@@ -1,0 +1,207 @@
+1️⃣ Why do we use functions?
+
+Functions are used to divide a program into smaller, reusable and manageable blocks of code. They help improve readability, reusability, maintainability and testing of the program.
+
+Key benefits:
+
+Reusability – write once, use many times
+
+Modularity – break complex logic into smaller pieces
+
+Easy debugging & testing
+
+Improved readability
+
+
+
+Example without function:----------
+Code
+
+a = 10
+b = 5
+print(a + b)
+
+c = 20
+d = 15
+print(c + d)
+
+Here, Same logic repeated
+
+Example with function:-------------
+Code 
+
+def add(x, y):
+    return x + y
+
+print(add(10, 5))
+print(add(20, 15))
+
+
+It is Cleaner, reusable and scalable
+
+
+
+2️⃣ What is the return keyword?
+Interview-style answer:
+
+The return keyword is used to send a value back from a function to the caller and terminate the function execution.
+
+Why it is important:
+
+Allows functions to produce output
+
+Enables further processing of results
+
+Makes functions reusable and testable
+
+Example:
+
+def square(num):
+    return num * num
+
+result = square(5)
+print(result)
+
+Output:
+25
+
+
+Without return:
+
+def square(num):
+    num * num
+
+print(square(5))
+
+Output:
+None
+
+
+Key point:
+
+A function can return multiple values
+
+def calculate(a, b):
+    return a+b, a-b
+
+sum_val, diff_val = calculate(10, 5)
+
+
+
+3️⃣ What are default arguments?
+
+Default arguments are function parameters that have predefined values, which are used when the caller does not provide those arguments.
+
+It shows you know how to write flexible and fault-tolerant functions.
+
+Example:
+def greet(name="Guest"):
+    print("Hello", name)
+
+greet("Swathi")
+greet()
+
+Output:
+Hello Swathi
+Hello Guest
+
+
+Why use default arguments?
+
+Avoid errors due to missing arguments
+
+Make functions easier to use
+
+Improve backward compatibility
+
+Default arguments are evaluated once at function definition time, not at runtime (important for mutable objects).
+
+
+
+4️⃣ Difference between Parameter and Argument
+
+| Parameter                       | Argument                        |
+| ------------------------------- | ------------------------------- |
+| Variable in function definition | Actual value passed to function |
+| Acts as a placeholder           | Supplies real data              |
+| Defined inside function         | Used during function call       |
+
+Example code :-
+
+def add(a, b):   # a and b are parameters
+    return a + b
+
+add(10, 5)       # 10 and 5 are arguments
+
+
+Simple analogy:
+
+Parameter → Empty box 📦
+
+Argument → Item placed in the box 🎁
+
+One-liner for interviews:
+
+Parameters receive data; arguments send data.
+
+
+
+
+5️⃣ What is the DRY Principle?
+
+DRY stands for “Don’t Repeat Yourself”.
+It is a software development principle that states every piece of knowledge or logic should have a single, unambiguous representation in code.
+
+It shows you can write maintainable, scalable, and professional code.
+
+Bad example (violates DRY):
+
+print(10 + 5)
+print(20 + 15)
+print(30 + 25)
+
+Here, Logic is repeated. 
+
+
+Good example (follows DRY):
+
+def add(a, b):
+    return a + b
+
+print(add(10, 5))
+print(add(20, 15))
+print(add(30, 25))
+
+
+Benefits of DRY:
+
+Less code duplication
+
+Easier updates
+
+Fewer bugs
+
+Better testing
+
+Real-world analogy:
+
+If your phone number changes, you update it once in contacts, not tell everyone separately.
+
+
+Final Summary:- 
+
+Functions: Help organize, reuse, and maintain code
+
+return: Sends result back from function
+
+Default arguments: Provide fallback values
+
+Parameter vs Argument: Parameter receives, argument passes
+
+DRY principle: Avoid code repetition
+
+
+
+
+
+
