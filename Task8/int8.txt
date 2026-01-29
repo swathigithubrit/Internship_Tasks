@@ -1,0 +1,391 @@
+Why use with statement?
+
+Automatically closes files even if an exception occurs.
+
+🔹 File modes:
+
+"w" → Write (overwrites)
+
+"r" → Read
+
+"a" → Append
+
+"w+" → Write + Read
+
+🔹 Why newline="" in CSV?
+
+Prevents extra blank lines in Windows.
+
+
+
+1️⃣ File Modes in Python
+
+File modes define how a file is opened and what operations are allowed (read, write, append, etc.).
+
+Common File Modes:
+
+| Mode   | Meaning                            |
+| ------ | ---------------------------------- |
+| `"r"`  | Read (file must exist)             |
+| `"w"`  | Write (creates or overwrites file) |
+| `"a"`  | Append (adds data at end)          |
+| `"x"`  | Create file, fails if exists       |
+| `"r+"` | Read + Write                       |
+| `"w+"` | Write + Read (overwrites)          |
+| `"a+"` | Append + Read                      |
+| `"b"`  | Binary mode                        |
+| `"t"`  | Text mode (default)                |
+
+
+Example code :- 
+
+with open("data.txt", "w") as file:
+    file.write("Hello World")
+
+
+one-liner:
+
+File modes control how and where data flows in a file.
+
+
+
+2️⃣ Why Should We Close Files?
+
+
+Files should be closed to free system resources, prevent data loss, and avoid file locking issues.
+
+What happens if you don’t close?
+
+Data may not be saved
+
+Memory leak
+
+File remains locked
+
+OS resource exhaustion
+
+
+Example (bad practice):
+
+
+file = open("data.txt", "w")
+file.write("Hello")
+# file not closed ❌
+
+
+Correct approach:
+
+with open("data.txt", "w") as file:
+    file.write("Hello")
+# file auto-closed ✅
+
+
+one-liner:
+
+Closing a file commits data and releases resources.
+
+
+
+3️⃣ CSV Use Cases
+Interview-style answer:
+
+CSV files are used to store tabular data in a simple, portable format that can be easily shared between systems.
+
+Common Real-World Use Cases:
+
+Excel reports
+
+Student records
+
+Financial transactions
+
+Machine learning datasets
+
+Data migration between systems
+
+Example:
+
+ID,Name,CGPA
+101,Swathi,8.7
+102,Anil,8.3
+
+
+Why CSV is popular:
+
+Human-readable
+
+Lightweight
+
+Supported by almost all tools
+
+One-liner:
+
+CSV is the bridge between databases, spreadsheets, and programs.
+
+
+
+4️⃣ What is a Context Manager?
+
+A context manager is an object that automatically manages resources, ensuring setup and cleanup actions are performed properly.
+
+In file handling:
+
+Opens file at start
+
+Closes file automatically
+
+Example:
+
+with open("data.txt", "r") as file:
+    print(file.read())
+
+
+Without context manager:
+
+file = open("data.txt", "r")
+print(file.read())
+file.close()
+
+
+one-liner:
+
+Context managers prevent resource leaks.
+
+
+
+5️⃣ File Handling Errors
+
+File handling errors occur due to missing files, permission issues, or invalid operations.
+
+Common File-Related Errors:
+
+
+| Error               | Meaning                  |
+| ------------------- | ------------------------ |
+| `FileNotFoundError` | File doesn’t exist       |
+| `PermissionError`   | Access denied            |
+| `IOError`           | Input/output error       |
+| `IsADirectoryError` | Directory opened as file |
+| `ValueError`        | Invalid file operation   |
+
+
+Example:
+
+try:
+    with open("missing.txt", "r") as file:
+        print(file.read())
+except FileNotFoundError:
+    print("File not found.")
+
+
+one-liner:
+
+File errors occur due to environment or access issues.
+
+
+Final Sheet
+
+File modes → control access
+
+Close files → avoid leaks & data loss
+
+CSV → simple tabular data
+
+Context manager → automatic cleanup
+
+File errors → handle with try-except
+
+
+Why close files? → To free resources
+
+Why with? → Auto close files
+
+CSV vs JSON? → Table vs structured data
+
+Most common file error? → FileNotFoundError
+
+
+
+1️⃣ Difference between read(), readline(), readlines()
+Interview-style answer:
+
+All three are used to read data from a file, but they differ in how much data they read and how they return it.
+
+Comparison Table:
+
+| Method | What it reads | Return type | Memory usage |
+|------|---------------|-------------|
+| read() | Entire file | str | High |
+| readline() | One line at a time | str | Low |
+| readlines() | All lines | list | Medium |
+
+
+Examples:
+read()
+with open("data.txt", "r") as f:
+    content = f.read()
+    print(content)
+
+
+✔ Reads complete file
+❌ Not suitable for very large files
+
+
+
+readline()
+with open("data.txt", "r") as f:
+    line = f.readline()
+    print(line)
+
+
+✔ Reads one line at a time
+✔ Best for large files
+
+
+readlines()
+with open("data.txt", "r") as f:
+    lines = f.readlines()
+    print(lines)
+
+
+✔ Reads all lines into a list
+✔ Useful for line-based processing
+
+
+one-liner:
+
+read() reads all, readline() reads one, readlines() reads many.
+
+2️⃣ What happens if a file doesn’t exist?
+Interview-style answer:
+
+If a file does not exist, Python’s behavior depends on the file mode.
+
+Behavior by file mode:
+
+| Mode  | Result                             |
+| ----- | ---------------------------------- |
+| `"r"` | `FileNotFoundError` ❌              |
+| `"w"` | Creates new file ✅                 |
+| `"a"` | Creates new file ✅                 |
+| `"x"` | Error if file exists, else creates |
+
+
+
+
+Example:
+open("missing.txt", "r")   # ❌ FileNotFoundError
+open("new.txt", "w")       # ✅ Creates file
+
+Proper handling:
+try:
+    with open("missing.txt", "r") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("File not found")
+
+One-liner:
+
+Read mode expects file to exist.
+
+
+
+3️⃣ Difference between CSV and JSON
+
+CSV is used for tabular data, while JSON is used for structured and hierarchical data.
+
+Comparison Table:
+
+| Feature             | CSV            | JSON            |
+| ------------------- | -------------- | --------------- |
+| Data format         | Rows & columns | Key-value pairs |
+| Structure           | Flat           | Nested          |
+| Human readability   | High           | High            |
+| Used in APIs        | ❌              | ✅               |
+| Used in ML datasets | ✅              | ❌               |
+
+
+
+Example:
+CSV:
+ID,Name,CGPA
+101,Swathi,8.7
+102,Anil,8.3
+
+JSON:
+{
+  "id": 101,
+  "name": "Swathi",
+  "cgpa": 8.7
+}
+
+
+One-liner:
+
+CSV is for tables, JSON is for data exchange.
+
+
+
+4️⃣ How file handling is used in real projects
+
+File handling is used in real projects for data storage, configuration, logging, reporting, and integration.
+
+Real-World Use Cases:
+🔹 Configuration Management
+{
+  "db": "mysql",
+  "port": 3306
+}
+
+
+✔ App reads config file at startup
+
+🔹 Logging
+with open("app.log", "a") as log:
+    log.write("User logged in\n")
+
+
+✔ Used for debugging and audits
+
+🔹 Data Processing & ML
+
+Read CSV datasets
+
+Save trained models
+
+Export results
+
+🔹 Reports & Exports
+
+Generate CSV reports
+
+Save PDF summaries
+
+Backup user data
+
+🔹 APIs & Integration
+
+Read JSON responses
+
+Write JSON requests
+
+Store API responses
+
+Interview one-liner:
+
+File handling connects code with persistent storage.
+
+⭐ Final Interview Cheat Sheet
+
+read() → full file
+
+readline() → one line
+
+readlines() → list of lines
+
+Missing file → depends on mode
+
+CSV vs JSON → table vs structure
+
+Real use → configs, logs, data, reports
+
