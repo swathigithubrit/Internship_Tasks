@@ -1,0 +1,178 @@
+1️⃣ What is OOP (Object-Oriented Programming)?
+
+Object-Oriented Programming (OOP) is a programming paradigm that organizes code into objects, where each object represents a real-world entity and contains data (attributes) and behavior (methods).
+
+Why it exists
+
+To model real-world problems
+
+To improve code reusability
+
+To make applications scalable and maintainable
+
+Simple Example (Python)
+class Car:
+    def __init__(self, brand):
+        self.brand = brand
+
+    def drive(self):
+        print(self.brand, "is driving")
+
+car1 = Car("Toyota")
+car1.drive()
+
+
+Here:
+
+Car → real-world entity
+
+brand → data
+
+drive() → behavior
+
+
+
+2️⃣ What is Encapsulation?
+Interview Answer
+
+Encapsulation is the concept of hiding internal data and allowing access only through controlled methods.
+
+Why it is needed
+
+Protects sensitive data
+
+Prevents accidental modification
+
+Improves security
+
+Real-World Example
+
+ATM machine:
+
+You cannot directly access balance
+
+You use options like withdraw, deposit
+
+Code Example
+class BankAccount:
+    def __init__(self, balance):
+        self._balance = balance  # protected variable
+
+    def get_balance(self):
+        return self._balance
+
+
+You don’t access _balance directly → you use get_balance().
+
+
+
+3️⃣ What is Inheritance? Give an example.
+Interview Answer
+
+Inheritance allows one class (child) to reuse the properties and methods of another class (parent).
+
+Why it is useful
+
+Code reusability
+
+Avoids duplication
+
+Logical hierarchy
+
+Real-World Example
+
+Vehicle → Car, Bike
+
+BankAccount → SavingsAccount
+
+Code Example
+class Vehicle:
+    def move(self):
+        print("Vehicle is moving")
+
+class Car(Vehicle):
+    def drive(self):
+        print("Car is driving")
+
+c = Car()
+c.move()   # inherited method
+c.drive()
+
+
+Here:
+
+Car inherits from Vehicle
+
+
+
+
+4️⃣ What is Polymorphism?
+Interview Answer
+
+Polymorphism means one method behaving differently based on the object calling it.
+
+Simple meaning
+
+Same function name → different behavior
+
+Real-World Example
+
+Withdraw in:
+
+Savings account (minimum balance rule)
+
+Current account (overdraft allowed)
+
+Code Example (Method Overriding)
+class Animal:
+    def sound(self):
+        print("Animal makes sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Dog barks")
+
+a = Dog()
+a.sound()
+
+
+Same method sound() → different output.
+
+
+
+
+5️⃣ Why OOP over Procedural Programming?
+Interview Answer
+
+OOP is preferred over procedural programming because it provides better structure, reusability, scalability, and maintainability, especially for large applications.
+
+Comparison Table
+
+| Feature             | Procedural | OOP                  |
+| ------------------- | ---------- | -------------------- |
+| Structure           | Functions  | Classes & Objects    |
+| Data Security       | Poor       | High (Encapsulation) |
+| Reusability         | Low        | High                 |
+| Maintenance         | Difficult  | Easy                 |
+| Real-world modeling | Weak       | Strong               |
+
+
+
+Example
+Procedural
+balance = 5000
+
+def withdraw(amount):
+    global balance
+    balance -= amount
+
+OOP
+class Account:
+    def __init__(self, balance):
+        self.balance = balance
+
+    def withdraw(self, amount):
+        self.balance -= amount
+
+
+OOP keeps data + logic together, making code safer.
