@@ -1,0 +1,150 @@
+1️⃣ What are Regular Expressions (Regex)?
+Interview Answer
+
+Regular Expressions (regex) are patterns used to search, match, extract, or validate text based on specific rules.
+
+Why regex exists
+
+To avoid writing long conditional logic
+
+To handle complex string patterns efficiently
+
+To validate inputs like email, phone number, password, etc.
+
+Simple Example (Python)
+import re
+
+pattern = r'\d+'
+text = "Order ID is 12345"
+
+result = re.search(pattern, text)
+print(result.group())
+
+
+Output:
+
+12345
+
+
+Here:
+
+\d+ → matches digits
+
+Regex finds numbers inside text easily
+
+2️⃣ Difference between match, search, and findall
+Interview Answer
+
+These methods differ in where and how they search for a pattern.
+
+Comparison Table
+
+| Method      | Description                                  |
+| ----------- | -------------------------------------------- |
+| `match()`   | Checks match **only at beginning** of string |
+| `search()`  | Finds first match **anywhere** in string     |
+| `findall()` | Returns **all matches** as a list            |
+
+
+Example
+import re
+
+text = "My number is 9876543210"
+
+print(re.match(r'\d+', text))       # None
+print(re.search(r'\d+', text))      # Match object
+print(re.findall(r'\d+', text))     # ['9876543210']
+
+Key Interview Line
+
+match() is strict, search() is flexible, and findall() is exhaustive.
+
+3️⃣ Why is Regex Preferred for Validation?
+Interview Answer
+
+Regex is preferred for validation because it allows complex pattern checking in a single line, making code cleaner, faster, and more reliable.
+
+Why not normal if-else?
+
+Multiple conditions → messy code
+
+Hard to maintain
+
+Error-prone
+
+Example: Email Validation
+
+❌ Without Regex:
+
+if "@" in email and "." in email:
+    pass
+
+
+✅ With Regex:
+
+re.fullmatch(r'^[\w.-]+@[\w.-]+\.\w+$', email)
+
+Interview Advantage
+
+Regex ensures format correctness, not just character presence.
+
+4️⃣ What are Greedy and Non-Greedy Patterns?
+Interview Answer
+
+Greedy patterns match as much text as possible, while
+non-greedy (lazy) patterns match as little text as possible.
+
+🔹 Greedy Example
+import re
+
+text = "<tag>content</tag>"
+print(re.search(r'<.*>', text).group())
+
+
+Output:
+
+<tag>content</tag>
+
+
+➡ .* eats everything
+
+🔹 Non-Greedy Example
+print(re.search(r'<.*?>', text).group())
+
+
+Output:
+
+<tag>
+
+
+➡ .*? stops at first match
+
+Interview One-Liner
+
+Adding ? makes a greedy quantifier non-greedy.
+
+5️⃣ Real-World Use Cases of Regex
+Interview Answer
+
+Regex is widely used for input validation, data extraction, text processing, and security checks.
+
+Common Real-World Applications
+
+| Use Case        | Example                    |
+| --------------- | -------------------------- |
+| Form validation | Email, password, phone     |
+| Log analysis    | Extract timestamps, errors |
+| Data cleaning   | Remove special characters  |
+| Web scraping    | Extract URLs, IDs          |
+| Search engines  | Pattern matching           |
+| Security        | Input sanitization         |
+
+
+Example: Log File Parsing
+log = "ERROR 2024-01-01 Database failure"
+re.findall(r'\d{4}-\d{2}-\d{2}', log)
+
+
+Output:
+
+['2024-01-01']
